@@ -81,6 +81,11 @@ namespace Shelterme.Models
         public string ConfirmPassword { get; set; }
 
 
+    }
+
+    public class RegisterDetailsViewModel
+    {
+
         public string ShelterProviderName { get; set; }
 
         public string City { get; set; }
@@ -91,7 +96,7 @@ namespace Shelterme.Models
 
         public string ContactDetails { get; set; }
 
-        public int BedsAvailable { get; set; }
+        public int MaxBedsAvailable { get; set; }
 
 
         public bool AllowWomen { get; set; }

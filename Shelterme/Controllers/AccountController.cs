@@ -164,20 +164,15 @@ namespace Shelterme.Controllers
                     // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                     // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
 
+
+                    //Todo: Need validation;
+
                     var userIdGuid = new Guid(user.Id);
 
                     //create ShelterProvider record
                     var shelterProvider = new ShelterProvider()
                     {
-                        Address = model.Address,
-                        AllowChildren = model.AllowChildren,
-                        AllowMen = model.AllowMen,
-                        AllowWomen = model.AllowWomen,
-                        BedsAvailable = model.BedsAvailable,
-                        City = model.City,
-                        ContactDetails = model.ContactDetails,
-                        ShelterProviderName = model.ShelterProviderName,
-                        Suburb = model.Suburb,
+                        
                         UserId = userIdGuid
                     };
 
@@ -185,7 +180,7 @@ namespace Shelterme.Controllers
                     UnitOfWork.SaveChanges();
 
 
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("RegisterAvailability", "Home");
                 }
                 AddErrors(result);
             }

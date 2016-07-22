@@ -20,8 +20,8 @@ namespace Shelterme.Data.Models
 
         public string ContactDetails { get; set; }
 
-        public int BedsAvailable { get; set; }
-
+        public int MaxBedsAvailable { get; set; }
+        public int CurrentBedsAvailable { get; set; }
 
         public bool AllowWomen { get; set; }
         public bool AllowMen { get; set; }
