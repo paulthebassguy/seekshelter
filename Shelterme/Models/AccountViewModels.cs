@@ -79,6 +79,24 @@ namespace Shelterme.Models
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+
+
+        public string ShelterProviderName { get; set; }
+
+        public string City { get; set; }
+        public string Suburb { get; set; }
+
+
+        public string Address { get; set; }
+
+        public string ContactDetails { get; set; }
+
+        public int BedsAvailable { get; set; }
+
+
+        public bool AllowWomen { get; set; }
+        public bool AllowMen { get; set; }
+        public bool AllowChildren { get; set; }
     }
 
     public class ResetPasswordViewModel

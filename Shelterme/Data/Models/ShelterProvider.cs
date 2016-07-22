@@ -12,7 +12,11 @@ namespace Shelterme.Data.Models
 
         public string ShelterProviderName { get; set; }
 
-        public string Location { get; set; }
+        public string City { get; set; }
+        public string Suburb { get; set; }
+
+
+        public string Address { get; set; }
 
         public string ContactDetails { get; set; }
 

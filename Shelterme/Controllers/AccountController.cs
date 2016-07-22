@@ -9,11 +9,12 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Shelterme.Models;
+using Shelterme.Data.Models;
 
 namespace Shelterme.Controllers
 {
     [Authorize]
-    public class AccountController : Controller
+    public class AccountController : BaseController
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
@@ -156,12 +157,33 @@ namespace Shelterme.Controllers
                 if (result.Succeeded)
                 {
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
-                    
+
                     // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
                     // Send an email with this link
                     // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
                     // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                     // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
+
+                    var userIdGuid = new Guid(user.Id);
+
+                    //create ShelterProvider record
+                    var shelterProvider = new ShelterProvider()
+                    {
+                        Address = model.Address,
+                        AllowChildren = model.AllowChildren,
+                        AllowMen = model.AllowMen,
+                        AllowWomen = model.AllowWomen,
+                        BedsAvailable = model.BedsAvailable,
+                        City = model.City,
+                        ContactDetails = model.ContactDetails,
+                        ShelterProviderName = model.ShelterProviderName,
+                        Suburb = model.Suburb,
+                        UserId = userIdGuid
+                    };
+
+                    UnitOfWork.ShelterProviders.Add(shelterProvider);
+                    UnitOfWork.SaveChanges();
+
 
                     return RedirectToAction("Index", "Home");
                 }
