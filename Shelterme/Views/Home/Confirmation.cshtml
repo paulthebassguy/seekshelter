@@ -4,33 +4,53 @@
     ViewBag.Title = "Confirmation";
 }
 
+    <center><h4><b class="from-confirm-text-header">Thanks. You are now helping to make the world a better place.</b></h4></center>
 
-<div class="row">
-    Thanks. You are now helping to make the world a better place. You have registered the following accommodation:
-</div>
 
-<div class="row">
-    Maximum number of beds: @Html.DisplayFor(m => m.MaxBedsAvailable)
-</div>
-<div class="row">
-    Shelter for: @Html.DisplayFor(m => m.AvailablityDisplayString)
-</div>
-<div class="row">
-    @Html.LabelFor(m => m.ShelterProviderName) : @Html.DisplayFor(m => m.ShelterProviderName)
-</div>
 
-<div class="row">
-    @Html.LabelFor(m => m.City) : @Html.DisplayFor(m => m.City)
-</div>
+<div class="row ">
+    <div class="col-md-3">
 
-<div class="row">
-    @Html.LabelFor(m => m.Suburb) : @Html.DisplayFor(m => m.Suburb)
-</div>
-<div class="row">
-    @Html.LabelFor(m => m.Address) : @Html.DisplayFor(m => m.Address)
-</div>
-<div class="row">
-    @Html.LabelFor(m => m.ContactDetails) : @Html.DisplayFor(m => m.ContactDetails)
-</div>
+    </div>
+    
+    
+       
+    <div class="col-md-5 form_confirm">
 
-@Html.ActionLink("Continue", "Index", "Home", null, new { @class = "btn btn-default" })
+        <div class="row ">
+            <p class="comfirm-top-text"> You have registered the following accommodation:<br /></p>
+            <b class="from-confirm-text">Maximum number of beds:</b> <b>@Html.DisplayFor(m => m.MaxBedsAvailable)</b>
+        </div>
+        <div class="row">
+            <b class="from-confirm-text">Shelter for:</b> <b> @Html.DisplayFor(m => m.AvailablityDisplayString)</b>
+        </div>
+        <b class="row">
+            <b class="from-confirm-text">@Html.LabelFor(m => m.ShelterProviderName)</b> <b>
+                : @Html.DisplayFor(m => m.ShelterProviderName)
+            </b>
+
+
+            <div class="row">
+                <b class="from-confirm-text"> @Html.LabelFor(m => m.City) </b> @Html.DisplayFor(m => m.City)
+            </div>
+
+            <div class="row">
+                <b class="from-confirm-text">@Html.LabelFor(m => m.Suburb) </b> : @Html.DisplayFor(m => m.Suburb)
+            </div>
+            <div class="row">
+                <b class="from-confirm-text">  @Html.LabelFor(m => m.Address) </b> : @Html.DisplayFor(m => m.Address)
+            </div>
+            <div class="row">
+                <b class="from-confirm-text"> @Html.LabelFor(m => m.ContactDetails) </b> : @Html.DisplayFor(m => m.ContactDetails)
+            </div>
+            <br />
+            @Html.ActionLink("Continue", "Index", "Home", null, new { @class = "btn btn-default" })
+
+
+    </div>
+    <div class="col-md-4"></div>
+
+
+</div>
+    
+
