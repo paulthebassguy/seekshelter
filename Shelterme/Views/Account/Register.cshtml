@@ -10,6 +10,7 @@
             <h2>@ViewBag.Title.</h2>
         </div>
         <div class="regiformd">
+            <div id="form_register">
             @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
             {
                 <ceter>
@@ -51,6 +52,7 @@
             }
 
         </div>
+            </div>
     </div>
 </center>
 <style>
@@ -61,7 +63,7 @@
 
     .regiform {
        
-        width:90%;
+        width:80%;
         margin-left:auto;
         margin-right:auto;
       
@@ -78,18 +80,19 @@
     }
     .regiformd {
          text-align:center;
-        background-color:green;
-        border:1px solid;
+         background-color:rgba(50,200,50,0.6);
+  border-radius:20px;
+         padding:10px 20px 20px 10px;
         width:80%;
-      border-bottom:4px solid;
-      margin-left:auto;
-        margin-right:auto;
-        border-bottom-left-radius:15%;
-          border-bottom-color:red;
-        border-top-right-radius:15%;
       
-      
-
+       margin: 20px auto auto auto;
+   
+    }
+    #form_register{
+        padding:10px 20px 20px 10px;
+       width:90%;
+       height:auto;
+        margin: 20px auto auto auto;
     }
 
 </style>
