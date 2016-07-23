@@ -6,7 +6,7 @@ using System.Web;
 
 namespace Shelterme.Models
 {
-    public class AdminPageViewModel
+    public class UpdateAvailabilityViewModel
     {
         [Display(Name = "Number of beds available")]
         public int CurrentBedsAvailable { get; set; }

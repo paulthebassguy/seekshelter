@@ -1,0 +1,42 @@
+﻿@model IEnumerable<Shelterme.Data.Models.ShelterProvider>
+
+@{
+    ViewBag.Title = "Confirmation";
+}
+
+<div class="row">
+    The following shelters are available:
+</div>
+
+@foreach(var provider in Model)
+{
+    <div class="row">
+        <div class="col-md-3">
+            Name
+        </div>
+        <div class="col-md-3">
+            Address
+        </div>
+        <div class="col-md-3">
+            Phone
+        </div>
+        <div class="col-md-3">
+            Beds Available
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            @provider.ShelterProviderName
+        </div>
+        <div class="col-md-3">
+            @provider.Address
+        </div>
+        <div class="col-md-3">
+            @provider.ContactDetails
+        </div>
+        <div class="col-md-3">
+            @provider.CurrentBedsAvailable
+        </div>
+    </div>
+    <hr />
+}
