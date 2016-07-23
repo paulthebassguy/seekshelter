@@ -4,11 +4,9 @@
     ViewBag.Title = "Home Page";
 }
 
-<div class="jumbotron">
+<div class="">
      
-    -- put logo here --
-
-    <p class="lead">Welcome to Seek Shelter!</p>
+ <p style="height:100px;padding-bottom:30px;padding-top:20px;font-size:20px;"> At SeekShelter, we believe nobody should be turned away from shelters at capacity with nowhere to go.</p>
     
 </div>
 
@@ -17,7 +15,7 @@
 @using (Html.BeginForm("Search", "Home", FormMethod.Post, new { @role = "form" }))
 {
 
-    <div class="col-md-6">
+    <div id="search_form" class="col-md-5">
         <h2>Search shelters</h2>
         <div class="row" style="padding-top:5px; padding-left:5px">
             <div class="col-md-4">
@@ -35,38 +33,45 @@
                 @Html.EditorFor(m => m.Suburb)
             </div>
         </div>
-        <div class="row">
-            Search accommodation for:
+        <div class="col-md-5">
+            <b >Search accommodation for: </b>
         </div>
-        <div class="row">
-            <div class="col-md-4">
-                @Html.LabelFor(m => m.SearchMen)
-            </div>
-            <div class="col-md-4">
-                @Html.EditorFor(m => m.SearchMen)
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-4">
-                @Html.LabelFor(m => m.SearchWomen)
-            </div>
-            <div class="col-md-4">
-                @Html.EditorFor(m => m.SearchWomen)
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-4">
+        <table  class="row">
+            <tr class="col-md-4">
+                <td>@Html.LabelFor(m => m.SearchMen)</td>
+
+                <td>@Html.EditorFor(m => m.SearchMen)</td>
+
+
+
+                <td class="col-md-2">
+                    @Html.LabelFor(m => m.SearchWomen)
+                </td>
+
+
+                <td class="col-md-2">
+                    @Html.EditorFor(m => m.SearchWomen)
+            </td>
+
+
+
+            <td class="col-md-2">
                 @Html.LabelFor(m => m.SearchChildren)
-            </div>
-            <div class="col-md-4">
+            </td>
+
+            <td>
                 @Html.EditorFor(m => m.SearchChildren)
-            </div>
-        </div>
-        <div class="row">
+        </td>
+        </tr>
+        </table><br />
+        
+        <div class="col-md-5 row">
             <input type='Submit' value='Search' class="btn btn-default" />
         </div>
     </div>
+    <div class="col-md-2">
 
+    </div>
     
 }
 
@@ -74,43 +79,42 @@
 @using (Html.BeginForm("UpdateAvailability", "Home", FormMethod.Post, new { @role = "form" }))
 {
 
-    <div class="col-md-6">
+    <div id="search_form" class="col-md-5">
         <h2>Update our availability</h2>
         <div class="row" style="padding-top:5px; padding-left:5px">
             <div class="col-md-4">
                 @Html.LabelFor(m => m.CurrentBedsAvailable)
             </div>
             <div class="col-md-4">
-                @Html.TextBoxFor(m => m.CurrentBedsAvailable, new { @style="width:80px" })
+                @Html.TextBoxFor(m => m.CurrentBedsAvailable, new { @style = "width:80px" })
             </div>
         </div>
-        <div class="row">
+        <div class="row col-md-4">
             Accommodation available for:
         </div>
-        <div class="row">
-            <div class="col-md-4">
-                @Html.LabelFor(m => m.AllowMen)
-            </div>
-            <div class="col-md-4">
-                @Html.EditorFor(m => m.AllowMen)
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-4">
-                @Html.LabelFor(m => m.AllowWomen)
-            </div>
-            <div class="col-md-4">
-                @Html.EditorFor(m => m.AllowWomen)
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-4">
-                @Html.LabelFor(m => m.AllowChildren)
-            </div>
-            <div class="col-md-4">
-                @Html.EditorFor(m => m.AllowChildren)
-            </div>
-        </div>
+        <table  class="row">
+            <tr class="col-md-4">
+                <td class="col-md-2">@Html.LabelFor(m => m.AllowMen)</td>
+
+
+                <td class="col-md-2">
+                    @Html.EditorFor(m => m.AllowMen)
+                </td>
+
+
+                <td class="col-md-2">
+                    @Html.LabelFor(m => m.AllowWomen)
+                </td>
+
+                <td class="col-md-2">   @Html.EditorFor(m => m.AllowWomen)</td>
+
+
+                <td class="col-md-2">@Html.LabelFor(m => m.AllowChildren)</td>
+
+                <td class="col-md-2"> @Html.EditorFor(m => m.AllowChildren)</td>
+</tr>
+        </table>
+        <br>
 
         @if (Model.ShowUpdateConfirmation)
         {
@@ -120,12 +124,22 @@
         }
         else
         {
-            <div class="row">
+            <div class="col-md-5 row">
                 <input type='Submit' value='Update' class="btn btn-default" />
             </div>
         }
     </div>
 
 }
+
         
 </div>
+
+<style>
+    #search_form{
+     height:300px;   
+    box-shadow:-2px 0px 5px #444141;
+    padding:10px;
+    border-radius:10px;
+    }
+</style>

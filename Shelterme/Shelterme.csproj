@@ -188,6 +188,9 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\images\seekshelter-logo.png" />
+    <Content Include="Content\images\seekshelter-logo_2.png" />
+    <Content Include="Content\images\header_bg.jpg" />
     <Content Include="Content\mainpage.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
