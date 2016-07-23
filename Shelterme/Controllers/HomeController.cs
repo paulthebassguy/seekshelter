@@ -44,6 +44,8 @@ namespace Shelterme.Controllers
         {
             var shelterProvider = UnitOfWork.ShelterProviders.FirstOrDefault(s => s.UserId == UserId);
 
+            if (shelterProvider == null) return RedirectToAction("Register", "Account");
+
             shelterProvider.MaxBedsAvailable = model.MaxBedsAvailable;
             shelterProvider.AllowChildren = model.AllowChildren;
             shelterProvider.AllowMen = model.AllowMen;
@@ -70,6 +72,8 @@ namespace Shelterme.Controllers
 
             var shelterProvider = UnitOfWork.ShelterProviders.FirstOrDefault(s => s.UserId == UserId);
 
+            if (shelterProvider == null) return RedirectToAction("Register", "Account");
+
             shelterProvider.Address = model.Address;
             shelterProvider.City = model.City;
             shelterProvider.ContactDetails = model.ContactDetails;
@@ -78,9 +82,32 @@ namespace Shelterme.Controllers
 
             UnitOfWork.SaveChanges();
 
-            return View();
+            return View("Confirmation");
         }
 
+
+        [AllowAnonymous]
+        public ActionResult Confirmation()
+        {
+            var shelterProvider = UnitOfWork.ShelterProviders.FirstOrDefault(s => s.UserId == UserId);
+
+            if (shelterProvider == null) return RedirectToAction("Register", "Account");
+
+            var model = new RegisterDetailsViewModel()
+            {
+                Address = shelterProvider.Address,
+                AllowChildren = shelterProvider.AllowChildren,
+                AllowMen = shelterProvider.AllowMen,
+                AllowWomen = shelterProvider.AllowWomen,
+                City = shelterProvider.City,
+                ContactDetails = shelterProvider.ContactDetails,
+                MaxBedsAvailable = shelterProvider.MaxBedsAvailable,
+                ShelterProviderName = shelterProvider.ShelterProviderName,
+                Suburb = shelterProvider.Suburb
+            };
+
+            return View(model);
+        }
 
         public ActionResult About()
         {

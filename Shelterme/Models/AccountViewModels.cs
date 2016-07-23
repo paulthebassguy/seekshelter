@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Linq;
 
 namespace Shelterme.Models
 {
@@ -85,7 +86,7 @@ namespace Shelterme.Models
 
     public class RegisterDetailsViewModel
     {
-
+        [Display(Name = "Your name")]
         public string ShelterProviderName { get; set; }
 
         public string City { get; set; }
@@ -94,14 +95,33 @@ namespace Shelterme.Models
 
         public string Address { get; set; }
 
+        [Display(Name = "Contact phone")]
         public string ContactDetails { get; set; }
 
+        [Display(Name = "Number of beds available")]
         public int MaxBedsAvailable { get; set; }
 
-
+        [Display(Name = "Women")]
         public bool AllowWomen { get; set; }
+
+        [Display(Name = "Men")]
         public bool AllowMen { get; set; }
+
+        [Display(Name = "Children")]
         public bool AllowChildren { get; set; }
+
+        public string AvailablityDisplayString
+        {
+            get
+            {
+                var list = new List<string>();
+                if (AllowWomen) list.Add("Women");
+                if (AllowMen) list.Add("Men");
+                if (AllowChildren) list.Add("Children");
+
+                return string.Join(" and", list);
+            }
+        }
     }
 
     public class ResetPasswordViewModel
