@@ -8,27 +8,77 @@ using System.Web.Mvc;
 
 namespace Shelterme.Controllers
 {
+    [Authorize]
     public class HomeController : BaseController
     {
-
-
-
+        
         public ActionResult Index()
         {
+            var shelterProvider = UnitOfWork.ShelterProviders.FirstOrDefault(s => s.UserId == UserId);
 
-            //var provider = new ShelterProvider()
-            //{
-            //    UserId = UserId,
-            //    ShelterProviderName = "hi"
-            //};
+            if (shelterProvider == null) return RedirectToAction("Register", "Account");
 
-            //UnitOfWork.ShelterProviders.Add(provider);
+            var model = new SearchAndUpdateViewModel()
+            {
+                AllowChildren = shelterProvider.AllowChildren,
+                AllowMen = shelterProvider.AllowMen,
+                AllowWomen = shelterProvider.AllowWomen,
+                CurrentBedsAvailable = shelterProvider.CurrentBedsAvailable
+            };
 
-            //UnitOfWork.SaveChanges();
+            return View(model);
+        }
+
+        [HttpPost]
+        public ActionResult Search(SearchAndUpdateViewModel model)
+        {
+            var shelterProvider = UnitOfWork.ShelterProviders.FirstOrDefault(s => s.UserId == UserId);
+
+            if (shelterProvider == null) return RedirectToAction("Register", "Account");
+
+            var shelters = UnitOfWork.ShelterProviders.Where(s =>
+                    s.CurrentBedsAvailable > 0
+                    && (string.IsNullOrEmpty(model.City) || s.City.ToLower() == model.City.ToLower())
+                    && (string.IsNullOrEmpty(model.Suburb) || s.City.ToLower() == model.Suburb.ToLower())
+                );
+
+            if(model.SearchChildren)
+            {
+                shelters = shelters.Where(s => s.AllowChildren);
+            }
+
+            if (model.SearchMen)
+            {
+                shelters = shelters.Where(s => s.AllowMen);
+            }
+
+            if (model.SearchWomen)
+            {
+                shelters = shelters.Where(s => s.AllowWomen);
+            }
+
+            return View("SearchResults", shelters);
+        }
 
 
+        [HttpPost]
+        public ActionResult UpdateAvailability(SearchAndUpdateViewModel model)
+        {
+            var shelterProvider = UnitOfWork.ShelterProviders.FirstOrDefault(s => s.UserId == UserId);
 
-            return View();
+            if (shelterProvider == null) return RedirectToAction("Register", "Account");
+
+            shelterProvider.CurrentBedsAvailable = model.CurrentBedsAvailable;
+            shelterProvider.AllowChildren = model.AllowChildren;
+            shelterProvider.AllowMen = model.AllowMen;
+            shelterProvider.AllowWomen = model.AllowWomen;
+
+            UnitOfWork.SaveChanges();
+
+            model.ShowUpdateConfirmation = true;
+
+
+            return View("Index", model);
         }
 
 
@@ -38,11 +88,12 @@ namespace Shelterme.Controllers
             return View();
         }
 
-        [AllowAnonymous]
         [HttpPost]
         public ActionResult RegisterAvailability(RegisterDetailsViewModel model)
         {
             var shelterProvider = UnitOfWork.ShelterProviders.FirstOrDefault(s => s.UserId == UserId);
+
+            if (shelterProvider == null) return RedirectToAction("Register", "Account");
 
             shelterProvider.MaxBedsAvailable = model.MaxBedsAvailable;
             shelterProvider.AllowChildren = model.AllowChildren;
@@ -63,12 +114,14 @@ namespace Shelterme.Controllers
         }
 
 
-        [AllowAnonymous]
+        
         [HttpPost]
         public ActionResult RegisterContact(RegisterDetailsViewModel model)
         {
 
             var shelterProvider = UnitOfWork.ShelterProviders.FirstOrDefault(s => s.UserId == UserId);
+
+            if (shelterProvider == null) return RedirectToAction("Register", "Account");
 
             shelterProvider.Address = model.Address;
             shelterProvider.City = model.City;
@@ -78,8 +131,32 @@ namespace Shelterme.Controllers
 
             UnitOfWork.SaveChanges();
 
-            return View();
+            return View("Confirmation");
         }
+
+        
+        public ActionResult Confirmation()
+        {
+            var shelterProvider = UnitOfWork.ShelterProviders.FirstOrDefault(s => s.UserId == UserId);
+
+            if (shelterProvider == null) return RedirectToAction("Register", "Account");
+
+            var model = new RegisterDetailsViewModel()
+            {
+                Address = shelterProvider.Address,
+                AllowChildren = shelterProvider.AllowChildren,
+                AllowMen = shelterProvider.AllowMen,
+                AllowWomen = shelterProvider.AllowWomen,
+                City = shelterProvider.City,
+                ContactDetails = shelterProvider.ContactDetails,
+                MaxBedsAvailable = shelterProvider.MaxBedsAvailable,
+                ShelterProviderName = shelterProvider.ShelterProviderName,
+                Suburb = shelterProvider.Suburb
+            };
+
+            return View(model);
+        }
+        
 
 
         public ActionResult About()
