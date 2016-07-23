@@ -243,6 +243,7 @@
     <Content Include="Views\Home\RegisterAvailability.cshtml" />
     <Content Include="Views\Home\RegisterContact.cshtml" />
     <Content Include="Views\Home\Confirmation.cshtml" />
+    <Content Include="Views\Home\SearchResults.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

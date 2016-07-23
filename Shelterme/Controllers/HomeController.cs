@@ -35,8 +35,29 @@ namespace Shelterme.Controllers
             var shelterProvider = UnitOfWork.ShelterProviders.FirstOrDefault(s => s.UserId == UserId);
 
             if (shelterProvider == null) return RedirectToAction("Register", "Account");
-            
-            return View("RegisterContact");
+
+            var shelters = UnitOfWork.ShelterProviders.Where(s =>
+                    s.CurrentBedsAvailable > 0
+                    && (string.IsNullOrEmpty(model.City) || s.City.ToLower() == model.City.ToLower())
+                    && (string.IsNullOrEmpty(model.Suburb) || s.City.ToLower() == model.Suburb.ToLower())
+                );
+
+            if(model.SearchChildren)
+            {
+                shelters = shelters.Where(s => s.AllowChildren);
+            }
+
+            if (model.SearchMen)
+            {
+                shelters = shelters.Where(s => s.AllowMen);
+            }
+
+            if (model.SearchWomen)
+            {
+                shelters = shelters.Where(s => s.AllowWomen);
+            }
+
+            return View("SearchResults", shelters);
         }
 
 
