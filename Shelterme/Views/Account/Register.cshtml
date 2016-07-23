@@ -1,43 +1,95 @@
-﻿@model Shelterme.Models.RegisterViewModel
-@{
-    ViewBag.Title = "Register";
-}
+﻿<center>
+    <div class="warper">
+        <div class="regiform">
 
-<h2>@ViewBag.Title.</h2>
+            @model Shelterme.Models.RegisterViewModel
+            @{
+                ViewBag.Title = "Register";
+            }
 
-@using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
-{
-    @Html.AntiForgeryToken()
-    <h4>Create a new account.</h4>
-    <hr />
+            <h2>@ViewBag.Title.</h2>
+        </div>
+        <div class="regiformd">
+            @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+            {
+                <ceter>
+                    @Html.AntiForgeryToken()
+                    <h4 class="form-group">Create a new account.</h4>
+                    <hr />
 
-    @Html.ValidationSummary("", new { @class = "text-danger" })
-    <div class="form-group">
-        @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+
+                    @Html.ValidationSummary("", new { @class = "text-danger" })
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
+                        <div class="col-md-10">
+                            @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-2 control-label" })
+                        <div class="col-md-10">
+                            @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" class="btn btn-default" value="Next" />
+                        </div>
+                    </div>
+                </ceter>
+            }
+
+            @section Scripts {
+                @Scripts.Render("~/bundles/jqueryval")
+            }
+
         </div>
     </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
-        </div>
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
-        </div>
-    </div>
+</center>
+<style>
+    .form-group {
+    text-align:center;
+    color:white;
+    }
+
+    .regiform {
+       
+        width:90%;
+        margin-left:auto;
+        margin-right:auto;
+      
+
+        
+    }
+    .col-md-10 {
+         width:70%;
+    margin-left:auto;
+    margin-right:auto;
+  
     
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <input type="submit" class="btn btn-default" value="Next" />
-        </div>
-    </div>
-}
+    
+    }
+    .regiformd {
+         text-align:center;
+        background-color:green;
+        border:1px solid;
+        width:80%;
+      border-bottom:4px solid;
+      margin-left:auto;
+        margin-right:auto;
+        border-bottom-left-radius:15%;
+          border-bottom-color:red;
+        border-top-right-radius:15%;
+      
+      
 
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}
+    }
+
+</style>
