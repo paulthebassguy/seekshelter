@@ -3,40 +3,97 @@
 @{
     ViewBag.Title = "Confirmation";
 }
-
-<div class="row">
-    The following shelters are available:
-</div>
-
-@foreach(var provider in Model)
-{
+<div class="rresult">
     <div class="row">
-        <div class="col-md-3">
-            Name
-        </div>
-        <div class="col-md-3">
-            Address
-        </div>
-        <div class="col-md-3">
-            Phone
-        </div>
-        <div class="col-md-3">
-            Beds Available
-        </div>
+        The following shelters are available:
     </div>
-    <div class="row">
-        <div class="col-md-3">
-            @provider.ShelterProviderName
-        </div>
-        <div class="col-md-3">
-            @provider.Address
-        </div>
-        <div class="col-md-3">
-            @provider.ContactDetails
-        </div>
-        <div class="col-md-3">
-            @provider.CurrentBedsAvailable
-        </div>
     </div>
-    <hr />
-}
+<div class="result">
+
+    @foreach (var provider in Model)
+
+    {
+        
+            <div class="result1">
+                <div class="row">
+                    <div class="col-md-3">
+                        Name: @provider.ShelterProviderName
+                    </div>
+                    <div class="col-md-3">
+                        Address:@provider.Address
+                    </div>
+                    <div class="col-md-3">
+                        Phone : @provider.ContactDetails
+                    </div>
+                </div>
+            </div>
+        
+          
+                    <p> avelible for</p>
+
+                    <div class="col-md-3">
+                        Men:
+                        @if (@provider.AllowMen)
+                        {
+                            <span class="glyphicon glyphicon-ok"></span>
+                        }
+
+
+                    </div>
+                    <div class="col-md-3">
+                        Women:
+                        @if (@provider.AllowWomen)
+                        {
+
+                            <span class="glyphicon glyphicon-ok"></span>
+                        }
+
+                    </div>
+                    <div class="col-md-3">
+                        Children:
+                        @if (@provider.AllowChildren)
+                        {
+                            <span class="glyphicon glyphicon-ok"></span>
+                        }
+
+                    </div>
+                    <div class="col-md-3">
+                        Vacances : @provider.CurrentBedsAvailable
+                    </div>
+            
+
+
+            <hr />
+            }
+        </div>
+    <style>
+        .rresult {
+            margin: 0;
+            margin-top: 5%;
+            width: 80%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .result {
+            border: 1px solid;
+            width: 100%;
+          
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .result1 {
+            float: left;
+            width: 50%;
+            height:100%;
+            padding:5px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+
+
+        glyphicon glyphicon-ok {
+        }
+    </style>
