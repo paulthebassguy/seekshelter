@@ -96,6 +96,7 @@ namespace Shelterme.Controllers
             if (shelterProvider == null) return RedirectToAction("Register", "Account");
 
             shelterProvider.MaxBedsAvailable = model.MaxBedsAvailable;
+            shelterProvider.CurrentBedsAvailable = model.MaxBedsAvailable;
             shelterProvider.AllowChildren = model.AllowChildren;
             shelterProvider.AllowMen = model.AllowMen;
             shelterProvider.AllowWomen = model.AllowWomen;
