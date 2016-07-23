@@ -39,7 +39,7 @@ namespace Shelterme.Controllers
             var shelters = UnitOfWork.ShelterProviders.Where(s =>
                     s.CurrentBedsAvailable > 0
                     && (string.IsNullOrEmpty(model.City) || s.City.ToLower() == model.City.ToLower())
-                    && (string.IsNullOrEmpty(model.Suburb) || s.City.ToLower() == model.Suburb.ToLower())
+                    && (string.IsNullOrEmpty(model.Suburb) || s.Suburb.ToLower() == model.Suburb.ToLower())
                 );
 
             if(model.SearchChildren)
@@ -131,7 +131,7 @@ namespace Shelterme.Controllers
 
             UnitOfWork.SaveChanges();
 
-            return View("Confirmation");
+            return RedirectToAction("Confirmation", "Home");
         }
 
         
