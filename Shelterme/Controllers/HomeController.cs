@@ -131,7 +131,7 @@ namespace Shelterme.Controllers
 
             UnitOfWork.SaveChanges();
 
-            return View("Confirmation");
+            return RedirectToAction("Confirmation", "Home");
         }
 
         
