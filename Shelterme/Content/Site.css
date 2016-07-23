@@ -23,6 +23,11 @@ textarea {
     max-width: 280px;
 }
 
-text-box {
+.form-control{
 background-color: lightgray;
+}
+.text-box  {
+background-color: lightgray;
+
+
 }
