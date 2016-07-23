@@ -55,3 +55,18 @@ color:#00b39b;
 background-color:#00b39b;
 
 }
+
+#navbar-right li a{
+           color:white;
+           font-weight:bold;
+           font-size:20px;
+       } 
+.btn-default{
+    background-color:#00b39b;
+}
+
+.user_name a{
+    color:#00b39b;
+}
+#btn-right{
+    background-color:#00b39b;
