@@ -119,10 +119,11 @@ namespace Shelterme.Models
                 if (AllowMen) list.Add("Men");
                 if (AllowChildren) list.Add("Children");
 
-                return string.Join(" and", list);
+                return string.Join(" and ", list);
             }
         }
     }
+    
 
     public class ResetPasswordViewModel
     {

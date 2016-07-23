@@ -8,6 +8,7 @@ using System.Web.Mvc;
 
 namespace Shelterme.Controllers
 {
+    [Authorize]
     public class HomeController : BaseController
     {
 
@@ -15,18 +16,7 @@ namespace Shelterme.Controllers
 
         public ActionResult Index()
         {
-
-            //var provider = new ShelterProvider()
-            //{
-            //    UserId = UserId,
-            //    ShelterProviderName = "hi"
-            //};
-
-            //UnitOfWork.ShelterProviders.Add(provider);
-
-            //UnitOfWork.SaveChanges();
-
-
+            
 
             return View();
         }
@@ -38,7 +28,6 @@ namespace Shelterme.Controllers
             return View();
         }
 
-        [AllowAnonymous]
         [HttpPost]
         public ActionResult RegisterAvailability(RegisterDetailsViewModel model)
         {
@@ -65,7 +54,7 @@ namespace Shelterme.Controllers
         }
 
 
-        [AllowAnonymous]
+        
         [HttpPost]
         public ActionResult RegisterContact(RegisterDetailsViewModel model)
         {
@@ -85,8 +74,7 @@ namespace Shelterme.Controllers
             return View("Confirmation");
         }
 
-
-        [AllowAnonymous]
+        
         public ActionResult Confirmation()
         {
             var shelterProvider = UnitOfWork.ShelterProviders.FirstOrDefault(s => s.UserId == UserId);
@@ -105,6 +93,40 @@ namespace Shelterme.Controllers
                 ShelterProviderName = shelterProvider.ShelterProviderName,
                 Suburb = shelterProvider.Suburb
             };
+
+            return View(model);
+        }
+
+        public ActionResult AdminPage()
+        {
+
+            var shelterProvider = UnitOfWork.ShelterProviders.FirstOrDefault(s => s.UserId == UserId);
+
+            if (shelterProvider == null) return RedirectToAction("Register", "Account");
+
+            var model = new AdminPageViewModel()
+            {
+                
+                AllowChildren = shelterProvider.AllowChildren,
+                AllowMen = shelterProvider.AllowMen,
+                AllowWomen = shelterProvider.AllowWomen,
+                CurrentBedsAvailable = shelterProvider.CurrentBedsAvailable 
+            };
+
+            return View(model);
+        }
+
+        [HttpPost]
+        public ActionResult AdminPage(AdminPageViewModel model)
+        {
+            var shelterProvider = UnitOfWork.ShelterProviders.FirstOrDefault(s => s.UserId == UserId);
+
+            if (shelterProvider == null) return RedirectToAction("Register", "Account");
+
+            shelterProvider.CurrentBedsAvailable = model.CurrentBedsAvailable;
+            shelterProvider.AllowChildren = model.AllowChildren;
+            shelterProvider.AllowMen = model.AllowMen;
+            shelterProvider.AllowWomen = model.AllowWomen;
 
             return View(model);
         }
