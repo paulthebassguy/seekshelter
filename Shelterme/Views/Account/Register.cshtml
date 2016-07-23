@@ -1,5 +1,5 @@
-﻿<center>
-    <div class="warper">
+﻿
+    
         <div class="regiform">
 
             @model Shelterme.Models.RegisterViewModel
@@ -9,13 +9,16 @@
 
             <h2>@ViewBag.Title.</h2>
         </div>
-        <div class="regiformd">
-            <div id="form_register">
+        <div class="row">
+            <div class="col-md-3">
+
+            </div>
+            <div class="col-md-5 form_register">
             @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
             {
-                <ceter>
+               
                     @Html.AntiForgeryToken()
-                    <h4 class="form-group">Create a new account.</h4>
+                    <h4 style="text-align:center;"><b>Create a new account</b></h4>
                     <hr />
 
 
@@ -40,11 +43,11 @@
                     </div>
 
                     <div class="form-group">
-                        <div class="col-md-offset-2 col-md-10">
+                        <div class="col-md-4">
                             <input type="submit" class="btn btn-default" value="Next" />
                         </div>
                     </div>
-                </ceter>
+                
             }
 
             @section Scripts {
@@ -52,47 +55,16 @@
             }
 
         </div>
+            <div class="col-md-3">
+
             </div>
-    </div>
-</center>
+            </div>
+    
+
 <style>
-    .form-group {
-    text-align:center;
-    color:white;
+    .form_register{
+        padding:20px;
+        box-shadow:-0px 0px 3px;
+        border-radius:20px;
     }
-
-    .regiform {
-       
-        width:80%;
-        margin-left:auto;
-        margin-right:auto;
-      
-
-        
-    }
-    .col-md-10 {
-         width:70%;
-    margin-left:auto;
-    margin-right:auto;
-  
-    
-    
-    }
-    .regiformd {
-         text-align:center;
-         background-color:rgba(50,200,50,0.6);
-  border-radius:20px;
-         padding:10px 20px 20px 10px;
-        width:80%;
-      
-       margin: 20px auto auto auto;
-   
-    }
-    #form_register{
-        padding:10px 20px 20px 10px;
-       width:90%;
-       height:auto;
-        margin: 20px auto auto auto;
-    }
-
 </style>
