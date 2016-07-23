@@ -1,31 +1,131 @@
-﻿@{
+﻿@model Shelterme.Models.SearchAndUpdateViewModel
+
+@{
     ViewBag.Title = "Home Page";
 }
 
 <div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="http://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+     
+    -- put logo here --
+
+    <p class="lead">Welcome to Seek Shelter!</p>
+    
 </div>
 
 <div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+
+@using (Html.BeginForm("Search", "Home", FormMethod.Post, new { @role = "form" }))
+{
+
+    <div class="col-md-6">
+        <h2>Search shelters</h2>
+        <div class="row" style="padding-top:5px; padding-left:5px">
+            <div class="col-md-4">
+                @Html.LabelFor(m => m.City)
+            </div>
+            <div class="col-md-4">
+                @Html.EditorFor(m => m.City)
+            </div>
+        </div>
+        <div class="row" style="padding-top:5px; padding-left:5px">
+            <div class="col-md-4">
+                @Html.LabelFor(m => m.Suburb)
+            </div>
+            <div class="col-md-4">
+                @Html.EditorFor(m => m.Suburb)
+            </div>
+        </div>
+        <div class="row">
+            Search accommodation for:
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                @Html.LabelFor(m => m.SearchMen)
+            </div>
+            <div class="col-md-4">
+                @Html.EditorFor(m => m.SearchMen)
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                @Html.LabelFor(m => m.SearchWomen)
+            </div>
+            <div class="col-md-4">
+                @Html.EditorFor(m => m.SearchWomen)
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                @Html.LabelFor(m => m.SearchChildren)
+            </div>
+            <div class="col-md-4">
+                @Html.EditorFor(m => m.SearchChildren)
+            </div>
+        </div>
+        <div class="row">
+            <input type='Submit' value='Search' class="btn btn-default" />
+        </div>
     </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+
+    
+}
+
+
+@using (Html.BeginForm("UpdateAvailability", "Home", FormMethod.Post, new { @role = "form" }))
+{
+
+    <div class="col-md-6">
+        <h2>Update our availability</h2>
+        <div class="row" style="padding-top:5px; padding-left:5px">
+            <div class="col-md-4">
+                @Html.LabelFor(m => m.CurrentBedsAvailable)
+            </div>
+            <div class="col-md-4">
+                @Html.TextBoxFor(m => m.CurrentBedsAvailable, new { @style="width:80px" })
+            </div>
+        </div>
+        <div class="row">
+            Accommodation available for:
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                @Html.LabelFor(m => m.AllowMen)
+            </div>
+            <div class="col-md-4">
+                @Html.EditorFor(m => m.AllowMen)
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                @Html.LabelFor(m => m.AllowWomen)
+            </div>
+            <div class="col-md-4">
+                @Html.EditorFor(m => m.AllowWomen)
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                @Html.LabelFor(m => m.AllowChildren)
+            </div>
+            <div class="col-md-4">
+                @Html.EditorFor(m => m.AllowChildren)
+            </div>
+        </div>
+
+        @if (Model.ShowUpdateConfirmation)
+        {
+            <div class="row">
+                Availability updated
+            </div>
+        }
+        else
+        {
+            <div class="row">
+                <input type='Submit' value='Update' class="btn btn-default" />
+            </div>
+        }
     </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-    </div>
+
+}
+        
 </div>
