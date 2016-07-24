@@ -19,29 +19,29 @@
 
         <div class="row ">
             <p class="comfirm-top-text"> You have registered the following accommodation:<br /></p>
-            <b class="from-confirm-text">Maximum number of beds:</b> <b>@Html.DisplayFor(m => m.MaxBedsAvailable)</b>
+            <b class="from-confirm-text col-md-6">Maximum number of beds:</b> <b class="from-confirm-right col-md-6">@Html.DisplayFor(m => m.MaxBedsAvailable)</b>
         </div>
         <div class="row">
-            <b class="from-confirm-text">Shelter for:</b> <b> @Html.DisplayFor(m => m.AvailablityDisplayString)</b>
+            <b class="from-confirm-text col-md-6">Shelter for:</b> <b class="from-confirm-right col-md-6"> @Html.DisplayFor(m => m.AvailablityDisplayString)</b>
         </div>
-        <b class="row">
-            <b class="from-confirm-text">@Html.LabelFor(m => m.ShelterProviderName)</b> <b>
-                : @Html.DisplayFor(m => m.ShelterProviderName)
+        <div class="row">
+            <b class="from-confirm-text col-md-6">@Html.LabelFor(m => m.ShelterProviderName) :</b> <b class="from-confirm-right col-md-6">
+                 @Html.DisplayFor(m => m.ShelterProviderName)
             </b>
-
-
-            <div class="row">
-                <b class="from-confirm-text"> @Html.LabelFor(m => m.City) </b> @Html.DisplayFor(m => m.City)
             </div>
 
             <div class="row">
-                <b class="from-confirm-text">@Html.LabelFor(m => m.Suburb) </b> : @Html.DisplayFor(m => m.Suburb)
+                <b class="from-confirm-text col-md-6"> @Html.LabelFor(m => m.City) :</b> <b class="from-confirm-right col-md-6">@Html.DisplayFor(m => m.City)</b>
+            </div>
+            
+            <div class="row">
+                <b class="from-confirm-text col-md-6">@Html.LabelFor(m => m.Suburb)  :</b> <b class="from-confirm-right col-md-6">@Html.DisplayFor(m => m.Suburb)</b>
             </div>
             <div class="row">
-                <b class="from-confirm-text">  @Html.LabelFor(m => m.Address) </b> : @Html.DisplayFor(m => m.Address)
+                <b class="from-confirm-text col-md-6">  @Html.LabelFor(m => m.Address)  :</b> <b class="from-confirm-right col-md-6"> @Html.DisplayFor(m => m.Address)</b>
             </div>
             <div class="row">
-                <b class="from-confirm-text"> @Html.LabelFor(m => m.ContactDetails) </b> : @Html.DisplayFor(m => m.ContactDetails)
+                <b class="from-confirm-text col-md-6"> @Html.LabelFor(m => m.ContactDetails) :</b> <b class="from-confirm-right col-md-6"> @Html.DisplayFor(m => m.ContactDetails)</b>
             </div>
             <br />
             @Html.ActionLink("Continue", "Index", "Home", null, new { @class = "btn btn-default" })
