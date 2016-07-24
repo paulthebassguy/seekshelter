@@ -16,7 +16,8 @@
 {
 
     <div id="search_form" class="col-md-5">
-        <h2>Search shelters</h2>
+        <h2 style="color:#6d6e70;font-weight:bold;">MY</h2>
+        <h2 style="color:#00b39b;margin-top:-12px;text-align:left;font-weight:bold;padding-bottom:20px;">SHELTER</h2>
         <div class="row" style="padding-top:5px; padding-left:5px">
             <div class="col-md-4">
                 @Html.LabelFor(m => m.City)
@@ -33,7 +34,7 @@
                 @Html.EditorFor(m => m.Suburb)
             </div>
         </div>
-        <div class="col-md-5">
+        <div class="col-md-12" style="padding:20px;">
             <b >Search accommodation for: </b>
         </div>
         <table  class="row">
@@ -80,7 +81,8 @@
 {
 
     <div id="search_form" class="col-md-5">
-        <h2>Update our availability</h2>
+        <h2 style="color:#6d6e70;font-weight:bold;">MY</h2>
+        <h2 style="color:#00b39b;margin-top:-12px;text-align:left;font-weight:bold;padding-bottom:20px;">SHELTER</h2>
         <div class="row" style="padding-top:5px; padding-left:5px">
             <div class="col-md-4">
                 @Html.LabelFor(m => m.CurrentBedsAvailable)
@@ -89,7 +91,7 @@
                 @Html.TextBoxFor(m => m.CurrentBedsAvailable, new { @style = "width:80px" })
             </div>
         </div>
-        <div class="row col-md-4">
+        <div class="col-md-12" style="padding:20px;font-weight:bold;">
             Accommodation available for:
         </div>
         <table  class="row">
@@ -118,7 +120,7 @@
 
         @if (Model.ShowUpdateConfirmation)
         {
-            <div class="row">
+            <div class="row" style="text-align:center;">
                 Availability updated
             </div>
         }
@@ -137,9 +139,9 @@
 
 <style>
     #search_form{
-     height:300px;   
+       
     box-shadow:-2px 0px 5px #444141;
     padding:10px;
-    border-radius:10px;
+    
     }
 </style>
