@@ -29,6 +29,13 @@ namespace Shelterme.Controllers
             return View(model);
         }
 
+
+        [HttpGet]
+        public ActionResult Search()
+        {
+            return RedirectToAction("Index", "Home");
+        }
+
         [HttpPost]
         public ActionResult Search(SearchAndUpdateViewModel model)
         {
@@ -60,6 +67,11 @@ namespace Shelterme.Controllers
             return View("SearchResults", shelters);
         }
 
+        [HttpGet]
+        public ActionResult UpdateAvailability()
+        {
+            return RedirectToAction("Index", "Home");
+        }
 
         [HttpPost]
         public ActionResult UpdateAvailability(SearchAndUpdateViewModel model)
