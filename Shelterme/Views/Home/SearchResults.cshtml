@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<Shelterme.Data.Models.ShelterProvider>
 
 @{
-    ViewBag.Title = "Confirmation";
+    ViewBag.Title = "Available shelters";
 }
 <div class="rresult">
     <div class="row">
@@ -32,12 +32,16 @@
 
                
                     <ul class="result_list col-md-5">
-                        <li><h3> avalible for </h3> </li>
+                        <li><h3>Available for </h3> </li>
                         <li>
                             <b>Men:</b>
                             @if (@provider.AllowMen)
                             {
                                 <span class="glyphicon glyphicon-ok"></span>
+                            }
+                            else
+                            {
+                                <span class="glyphicon glyphicon-remove"></span>
                             }
                         </li>
 
@@ -49,6 +53,10 @@
 
                                 <span class="glyphicon glyphicon-ok"></span>
                             }
+                            else
+                            {
+                                <span class="glyphicon glyphicon-remove"></span>
+                            }
                         </li>
 
                         <li>
@@ -56,6 +64,10 @@
                             @if (@provider.AllowChildren)
                             {
                                 <span class="glyphicon glyphicon-ok"></span>
+                            }
+                            else
+                            {
+                                <span class="glyphicon glyphicon-remove"></span>
                             }
                         </li>
 
@@ -65,7 +77,7 @@
                 
                 
                     <ul class="result_list col-md-2">
-                        <li><h3> avalible </h3> </li>
+                        <li><h3>Vacancies </h3> </li>
                         <li>  <b>Vacances : </b>@provider.CurrentBedsAvailable</li>
                     </ul>
                 
@@ -80,6 +92,10 @@
          
             }
              
+    <div class="text-center">
+        @Html.ActionLink("Search again", "Index", "Home", null, new { @class = "btn btn-default" })
+    </div>
+        
         </div>
     <style>
         .rresult {

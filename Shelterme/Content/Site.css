@@ -49,6 +49,9 @@ background-color: lightgray;
 .glyphicon-ok{
     color:#00b39b;
 }
+.glyphicon-remove{
+    color:#cc0000;
+}
 #header_result{
     color:#00b39b;
     text-align:center;
