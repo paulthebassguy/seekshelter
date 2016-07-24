@@ -46,3 +46,28 @@ background-color: lightgray;
 #btn-right{
     background-color:#00b39b;
 }
+.glyphicon-ok{
+    color:#00b39b;
+}
+#header_result{
+    color:#00b39b;
+    text-align:center;
+}
+ .result{
+            
+          margin-bottom:5px;
+            
+        }
+ .result_content{
+     box-shadow:0px 0px 3px;
+ }
+ .result_list{
+      
+     text-decoration:none;
+     list-style:none;
+     
+ }
+ .result_list h3{
+     color:#00b39b;
+     
+ }

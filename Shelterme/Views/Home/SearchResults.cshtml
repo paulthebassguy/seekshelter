@@ -5,66 +5,81 @@
 }
 <div class="rresult">
     <div class="row">
-        The following shelters are available:
+        <h2 id="header_result">The following shelters are available:</h2>
     </div>
     </div>
-<div class="result">
+<div  >
 
     @foreach (var provider in Model)
 
     {
-        
-            <div class="result1">
-                <div class="row">
-                    <div class="col-md-3">
-                        Name: @provider.ShelterProviderName
-                    </div>
-                    <div class="col-md-3">
-                        Address:@provider.Address
-                    </div>
-                    <div class="col-md-3">
-                        Phone : @provider.ContactDetails
-                    </div>
-                </div>
-            </div>
-        
-          
-                    <p> avelible for</p>
-
-                    <div class="col-md-3">
-                        Men:
-                        @if (@provider.AllowMen)
-                        {
-                            <span class="glyphicon glyphicon-ok"></span>
-                        }
-
-
-                    </div>
-                    <div class="col-md-3">
-                        Women:
-                        @if (@provider.AllowWomen)
-                        {
-
-                            <span class="glyphicon glyphicon-ok"></span>
-                        }
-
-                    </div>
-                    <div class="col-md-3">
-                        Children:
-                        @if (@provider.AllowChildren)
-                        {
-                            <span class="glyphicon glyphicon-ok"></span>
-                        }
-
-                    </div>
-                    <div class="col-md-3">
-                        Vacances : @provider.CurrentBedsAvailable
-                    </div>
+        <div class="row result">
             
+                <div class="col-md-2">
+
+                </div>
+                <div class="col-md-8 result_content">
+                    <ul class="result_list col-md-5">
+                        <li><h3>Provider </h3></li>
+                        <li> <b>Name:</b> @provider.ShelterProviderName</li>
+
+                        <li><b>Address:</b>@provider.Address</li>
+
+                        <li><b>Phone : </b>@provider.ContactDetails</li>
+
+                    </ul>
+                
+
+               
+                    <ul class="result_list col-md-5">
+                        <li><h3> avalible for </h3> </li>
+                        <li>
+                            <b>Men:</b>
+                            @if (@provider.AllowMen)
+                            {
+                                <span class="glyphicon glyphicon-ok"></span>
+                            }
+                        </li>
 
 
-            <hr />
+                        <li>
+                            <b> Women:</b>
+                            @if (@provider.AllowWomen)
+                            {
+
+                                <span class="glyphicon glyphicon-ok"></span>
+                            }
+                        </li>
+
+                        <li>
+                            <b>Children:</b>
+                            @if (@provider.AllowChildren)
+                            {
+                                <span class="glyphicon glyphicon-ok"></span>
+                            }
+                        </li>
+
+
+
+                    </ul>
+                
+                
+                    <ul class="result_list col-md-2">
+                        <li><h3> avalible </h3> </li>
+                        <li>  <b>Vacances : </b>@provider.CurrentBedsAvailable</li>
+                    </ul>
+                
+            </div>
+            <div class="2">
+
+            </div>
+
+        </div>
+
+
+         
             }
+             
         </div>
     <style>
         .rresult {
@@ -75,13 +90,7 @@
             margin-right: auto;
         }
 
-        .result {
-            border: 1px solid;
-            width: 100%;
-          
-            margin-left: auto;
-            margin-right: auto;
-        }
+       
 
         .result1 {
             float: left;
