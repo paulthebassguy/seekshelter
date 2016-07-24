@@ -71,3 +71,42 @@ background-color: lightgray;
      color:#00b39b;
      
  }
+
+ 
+.form_confirm{
+   text-align:center;
+    background-color:lightgray;
+    text-justify:none;
+}
+.from-confirm-text {
+text-align:center;
+text-align:justify;
+color:#00b39b;
+}
+.from-confirm-text-header {
+    text-align:center;
+    color:darkgrey;
+    margin:0;
+}
+.comfirm-top-text{
+  text-align:center;
+  font-size: 16px;
+ 
+}
+.btn-default {
+background-color:#00b39b;
+
+}
+
+
+#btn-right {
+    background-color: #00b39b;
+}
+#CurrentBedsAvailable{
+    background-color: lightgray;
+}
+
+.form-center{
+       
+       margin-left: auto; margin-right: auto;
+   }
