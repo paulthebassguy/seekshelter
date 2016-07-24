@@ -78,18 +78,21 @@ background-color: lightgray;
  
 .form_confirm{
    text-align:center;
-    background-color:lightgray;
+    padding:20px;
     text-justify:none;
+    box-shadow:-2px 0px 5px #444141;
 }
 .from-confirm-text {
-text-align:center;
-text-align:justify;
+text-align:right;
 color:#00b39b;
+}
+.from-confirm-right{
+    text-align:left;
 }
 .from-confirm-text-header {
     text-align:center;
-    color:darkgrey;
-    margin:0;
+    
+    margin-top:10px;
 }
 .comfirm-top-text{
   text-align:center;
