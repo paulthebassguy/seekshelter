@@ -1,6 +1,24 @@
 ﻿body {
     padding-top: 50px;
     padding-bottom: 20px;
+    height:100%;
+}
+
+footer
+{
+    height:100px;
+    background-color: #333333;
+    position: relative;
+    left: 0;
+    bottom:0;
+    right: 0;   
+    width: 100%;
+}
+ 
+
+.whole-body
+{
+    padding-bottom: 100px;
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -25,6 +43,7 @@ textarea {
 
 .form-control{
 background-color: lightgray;
+border-radius:0px;
 }
 .text-box  {
 background-color: lightgray;
@@ -101,7 +120,7 @@ color:#00b39b;
 }
 .btn-default {
 background-color:#00b39b;
-
+color:#ffffff;
 }
 
 
@@ -116,3 +135,59 @@ background-color:#00b39b;
        
        margin-left: auto; margin-right: auto;
    }
+
+.bold
+{
+    font-weight:bold;
+}
+
+.mar-top-5
+{
+    margin-top: 5px;
+}
+
+
+.mar-top-10
+{
+    margin-top: 10px;
+}
+
+
+.mar-top-20
+{
+    margin-top: 20px;
+}
+
+
+
+.mar-left-5
+{
+    margin-left: 5px;
+}
+
+.mar-left-10
+{
+    margin-left: 10px;
+}
+
+
+.mar-left-30
+{
+    margin-left: 30px;
+}
+
+.mar-left-35
+{
+    margin-left: 35px;
+}
+
+
+.mar-left-40
+{
+    margin-left: 40px;
+}
+
+.grey
+{
+    color:grey;
+}

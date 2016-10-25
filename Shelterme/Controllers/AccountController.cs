@@ -170,15 +170,25 @@ namespace Shelterme.Controllers
                     //create ShelterProvider record
                     var shelterProvider = new ShelterProvider()
                     {
-                        
-                        UserId = userIdGuid
+                        UserId = userIdGuid,
+                        MaxBedsAvailable = model.MaxBedsAvailable,
+                        CurrentBedsAvailable = model.MaxBedsAvailable,
+                        AllowChildren = model.AllowChildren,
+                        AllowMen = model.AllowMen,
+                        AllowWomen = model.AllowWomen,
+                        Address = model.Address,
+                        City = model.City,
+                        ContactDetails = model.ContactName,
+                        ShelterProviderName = model.ShelterProviderName,
+                        Suburb = model.Suburb,
+                        ContactPhone = model.ContactPhone
                     };
 
                     UnitOfWork.ShelterProviders.Add(shelterProvider);
                     UnitOfWork.SaveChanges();
 
 
-                    return RedirectToAction("RegisterAvailability", "Home");
+                    return RedirectToAction("Confirmation", "Home");
                 }
                 AddErrors(result);
             }

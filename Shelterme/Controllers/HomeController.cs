@@ -94,58 +94,58 @@ namespace Shelterme.Controllers
         }
 
 
-        [AllowAnonymous]
-        public ActionResult RegisterAvailability()
-        {
-            return View();
-        }
+        //[AllowAnonymous]
+        //public ActionResult RegisterAvailability()
+        //{
+        //    return View();
+        //}
 
-        [HttpPost]
-        public ActionResult RegisterAvailability(RegisterDetailsViewModel model)
-        {
-            var shelterProvider = UnitOfWork.ShelterProviders.FirstOrDefault(s => s.UserId == UserId);
+        //[HttpPost]
+        //public ActionResult RegisterAvailability(RegisterDetailsViewModel model)
+        //{
+        //    var shelterProvider = UnitOfWork.ShelterProviders.FirstOrDefault(s => s.UserId == UserId);
 
-            if (shelterProvider == null) return RedirectToAction("Register", "Account");
+        //    if (shelterProvider == null) return RedirectToAction("Register", "Account");
 
-            shelterProvider.MaxBedsAvailable = model.MaxBedsAvailable;
-            shelterProvider.CurrentBedsAvailable = model.MaxBedsAvailable;
-            shelterProvider.AllowChildren = model.AllowChildren;
-            shelterProvider.AllowMen = model.AllowMen;
-            shelterProvider.AllowWomen = model.AllowWomen;
+        //    shelterProvider.MaxBedsAvailable = model.MaxBedsAvailable;
+        //    shelterProvider.CurrentBedsAvailable = model.MaxBedsAvailable;
+        //    shelterProvider.AllowChildren = model.AllowChildren;
+        //    shelterProvider.AllowMen = model.AllowMen;
+        //    shelterProvider.AllowWomen = model.AllowWomen;
 
-            UnitOfWork.SaveChanges();
+        //    UnitOfWork.SaveChanges();
 
-            return View("RegisterContact");
-        }
+        //    return View("RegisterContact");
+        //}
 
-        [AllowAnonymous]
-        public ActionResult RegisterContact()
-        {
+        //[AllowAnonymous]
+        //public ActionResult RegisterContact()
+        //{
 
 
-            return View();
-        }
+        //    return View();
+        //}
 
 
         
-        [HttpPost]
-        public ActionResult RegisterContact(RegisterDetailsViewModel model)
-        {
+        //[HttpPost]
+        //public ActionResult RegisterContact(RegisterDetailsViewModel model)
+        //{
 
-            var shelterProvider = UnitOfWork.ShelterProviders.FirstOrDefault(s => s.UserId == UserId);
+        //    var shelterProvider = UnitOfWork.ShelterProviders.FirstOrDefault(s => s.UserId == UserId);
 
-            if (shelterProvider == null) return RedirectToAction("Register", "Account");
+        //    if (shelterProvider == null) return RedirectToAction("Register", "Account");
 
-            shelterProvider.Address = model.Address;
-            shelterProvider.City = model.City;
-            shelterProvider.ContactDetails = model.ContactDetails;
-            shelterProvider.ShelterProviderName = model.ShelterProviderName;
-            shelterProvider.Suburb = model.Suburb;
+        //    shelterProvider.Address = model.Address;
+        //    shelterProvider.City = model.City;
+        //    shelterProvider.ContactDetails = model.ContactDetails;
+        //    shelterProvider.ShelterProviderName = model.ShelterProviderName;
+        //    shelterProvider.Suburb = model.Suburb;
 
-            UnitOfWork.SaveChanges();
+        //    UnitOfWork.SaveChanges();
 
-            return RedirectToAction("Confirmation", "Home");
-        }
+        //    return RedirectToAction("Confirmation", "Home");
+        //}
 
         
         public ActionResult Confirmation()
@@ -161,7 +161,7 @@ namespace Shelterme.Controllers
                 AllowMen = shelterProvider.AllowMen,
                 AllowWomen = shelterProvider.AllowWomen,
                 City = shelterProvider.City,
-                ContactDetails = shelterProvider.ContactDetails,
+                ContactPhone = shelterProvider.ContactPhone,
                 MaxBedsAvailable = shelterProvider.MaxBedsAvailable,
                 ShelterProviderName = shelterProvider.ShelterProviderName,
                 Suburb = shelterProvider.Suburb

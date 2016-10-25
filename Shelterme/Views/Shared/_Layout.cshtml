@@ -9,18 +9,19 @@
     <link href="~/Content/Site.css" rel="stylesheet" />
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-
-        <img class="header_bg img-responsive" src="~/Content/images/header_bg.jpg" />
-        <div class="container">
-            <div class="navbar-header">
+    <div class="navbar navbar-inverse navbar-fixed-top" style="background-image: url('../../Content/images/header_bg.jpg')" >
+        
+        
+        <div class="container" >
+            <div class="navbar-header" >
+                
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
                 <div class="col-md-12 col-sm-9">
-                    <img id="logo" src="~/Content/images/seekshelter-logo.png" />
+                    <img id="logo" src="~/Content/images/seekshelter-1logo-white.png" />
                     
 
                </div><span>
@@ -33,25 +34,36 @@
             </div>
         </div>
     </div>
-    <div style="margin-top:55px;" class="container body-content">
-        @RenderBody()
+
+
+    <div style="margin-top:55px; min-height:100%; position:relative" >
+        
+        <div class="container body-content whole-body">
+            @RenderBody()
+        </div>
+        
+        
         <hr />
         
-        <footer >
-
-            <p style="" class="text-center">
-                <div class="text-center" >
-                    <a href="https://www.facebook.com/SeekShelterNZ/" title="" class="facebook"><i class="fa fa-facebook fa-3x"></i></a>
-                    <a href="https://twitter.com/SeekShelterNZ" title="" class="twitter"><i class="fa fa-twitter fa-3x"></i></a>
-                    <a href="https://instagram.com/seekshelternz" title="" class="instagram"><i class="fa fa-instagram fa-3x"></i></a>
-                
+        <footer>
+            <p >
+                <div class="mar-top-20" style="color:white">
                     <br />
-                    &copy; @DateTime.Now.Year - Seek Shelter  
-                </div>      
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="https://www.linkedin.com/company/10877856" title="" class="linkedin"><img src="http://www.seekshelter.org.nz/wp-content/uploads/2016/10/ssnz-linkedin.png" height="35" width="35" /></a>
+                    <a href="https://www.facebook.com/SeekShelterNZ/" title="" class="facebook"><img src="http://www.seekshelter.org.nz/wp-content/uploads/2016/10/ssnz-facebook.png" height="35" width="35" /></a>
+                    <a href="https://twitter.com/SeekShelterNZ" title="" class="twitter"><img src="http://www.seekshelter.org.nz/wp-content/uploads/2016/10/ssnz-twitter.png" height="35" width="35" /></a>
+                    <a href="https://instagram.com/seekshelternz" title="" class="instagram"><img src="http://www.seekshelter.org.nz/wp-content/uploads/2016/10/ssnz-instagram.png" height="35" width="35" /></a>
+
+                    <br />
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&copy; @DateTime.Now.Year - Seek Shelter
+                </div>
             </p>
-            
         </footer>
+        
     </div>
+
+    
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
@@ -67,9 +79,14 @@
 
         .navbar .header_bg {
             width:100%;
-            height:99px;
+            
             position:fixed;
             
+        }
+
+        .header-bg-image
+        {
+            background-image: url("~/Content/images/header_bg.jpg");
         }
     </style>
 </body>

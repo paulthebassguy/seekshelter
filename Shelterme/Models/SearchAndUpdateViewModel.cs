@@ -24,7 +24,7 @@ namespace Shelterme.Models
 
 
 
-        [Display(Name = "Number of beds available")]
+        [Display(Name = "Beds available")]
         public int CurrentBedsAvailable { get; set; }
 
         [Display(Name = "Men")]

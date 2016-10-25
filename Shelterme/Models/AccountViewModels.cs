@@ -81,9 +81,56 @@ namespace Shelterme.Models
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
 
+        [Required]
+        [Display(Name = "Contact Name")]
+        public string ContactName { get; set; }
 
+        [Required]
+        [Display(Name = "Shelter name")]
+        public string ShelterProviderName { get; set; }
+
+        [Required]
+        public string City { get; set; }
+
+        [Required]
+        public string Suburb { get; set; }
+
+        [Required]
+        public string ContactPhone { get; set; }
+
+        [Required]
+        public string Address { get; set; }
+
+        [Required]
+        [Display(Name = "Beds available")]
+        public int MaxBedsAvailable { get; set; }
+
+        [Display(Name = "Women")]
+        public bool AllowWomen { get; set; }
+
+        [Display(Name = "Men")]
+        public bool AllowMen { get; set; }
+
+        [Display(Name = "Children")]
+        public bool AllowChildren { get; set; }
+
+        public string AvailablityDisplayString
+        {
+            get
+            {
+                var list = new List<string>();
+                if (AllowWomen) list.Add("Women");
+                if (AllowMen) list.Add("Men");
+                if (AllowChildren) list.Add("Children");
+
+                return string.Join(" and ", list);
+            }
+        }
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
     public class RegisterDetailsViewModel
     {
         [Display(Name = "Your name")]
@@ -96,7 +143,7 @@ namespace Shelterme.Models
         public string Address { get; set; }
 
         [Display(Name = "Contact phone")]
-        public string ContactDetails { get; set; }
+        public string ContactPhone { get; set; }
 
         [Display(Name = "Number of beds available")]
         public int MaxBedsAvailable { get; set; }

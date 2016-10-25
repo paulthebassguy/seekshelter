@@ -5,12 +5,10 @@
 }
 
 <div class="">
-     
- <p style="height:100px;padding-bottom:30px;padding-top:20px;font-size:20px;"> At SeekShelter, we believe nobody should be turned away from shelters at capacity with nowhere to go.</p>
     
 </div>
 
-<div class="row">
+<div class="row mar-top-20">
 
 @using (Html.BeginForm("Search", "Home", FormMethod.Post, new { @role = "form" }))
 {
@@ -34,40 +32,34 @@
                 @Html.EditorFor(m => m.Suburb)
             </div>
         </div>
-        <div class="col-md-12" style="padding:20px;">
+        <div class="col-md-12" style="padding-top:20px; font-size: 16px">
             <b >Search accommodation for: </b>
         </div>
-        <table  class="row">
+        <table class="row">
             <tr class="col-md-4">
-                <td>@Html.LabelFor(m => m.SearchMen)</td>
+                <td class="col-md-2">@Html.LabelFor(m => m.SearchMen)</td>
 
-                <td>@Html.EditorFor(m => m.SearchMen)</td>
 
+                <td class="col-md-2">
+                    @Html.EditorFor(m => m.SearchMen)
+                </td>
 
 
                 <td class="col-md-2">
                     @Html.LabelFor(m => m.SearchWomen)
                 </td>
 
-
-                <td class="col-md-2">
-                    @Html.EditorFor(m => m.SearchWomen)
-            </td>
+                <td class="col-md-2">   @Html.EditorFor(m => m.SearchWomen)</td>
 
 
+                <td class="col-md-2">@Html.LabelFor(m => m.SearchChildren)</td>
 
-            <td class="col-md-2">
-                @Html.LabelFor(m => m.SearchChildren)
-            </td>
-
-            <td>
-                @Html.EditorFor(m => m.SearchChildren)
-        </td>
-        </tr>
+                <td class="col-md-2"> @Html.EditorFor(m => m.SearchChildren)</td>
+            </tr>
         </table><br />
         
         <div class="col-md-5 row">
-            <input id="btn-right" type='Submit' value='Search' class="btn btn-default" />
+            <input id="btn-right" type='Submit' value='SEARCH' class="btn btn-default" />
         </div>
     </div>
     <div class="col-md-2">
@@ -91,7 +83,7 @@
                 @Html.TextBoxFor(m => m.CurrentBedsAvailable, new { @style = "width:80px" })
             </div>
         </div>
-        <div class="col-md-12" style="padding:20px;font-weight:bold;">
+        <div class="col-md-12" style="padding-top:20px; font-weight:bold; font-size: 16px">
             Accommodation available for:
         </div>
         <table  class="row">
@@ -114,7 +106,7 @@
                 <td class="col-md-2">@Html.LabelFor(m => m.AllowChildren)</td>
 
                 <td class="col-md-2"> @Html.EditorFor(m => m.AllowChildren)</td>
-</tr>
+            </tr>
         </table>
         <br>
 
@@ -127,7 +119,7 @@
         else
         {
             <div class="col-md-5 row">
-                <input id="btn-right" type='Submit' value='Update' class="btn btn-default" />
+                <input id="btn-right" type='Submit' value='UPDATE' class="btn btn-default" />
             </div>
         }
     </div>
@@ -140,7 +132,8 @@
 <style>
     #search_form{
        
-    box-shadow:-2px 0px 5px #444141;
+    border:solid 1px;
+    border-color: grey;
     padding:10px;
     
     }

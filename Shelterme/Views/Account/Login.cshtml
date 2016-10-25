@@ -9,85 +9,90 @@
 </div>
 
 <div class="row">
-    <div class="form-center col-md-3">
+    
+    <div class="col-sm-3">
+            
     </div>
-        <div class="col-md-5">
-            <section id="loginForm">
+   <div class="col-sm-6">
+       <section id="loginForm">
 
-                @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
-                {
+           @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+           {
 
-                    @Html.AntiForgeryToken()
+               @Html.AntiForgeryToken()
 
-                    <img class="form_logo " src="~/Content/images/seekshelter-logo_2.png" />
-                    <hr />
-                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                    <div class="form-group">
-                        @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
-                        <div class="col-md-10">
-                            @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
-                            @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
-                        <div class="col-md-10">
-                            @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
-                            @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-md-offset-2 col-md-10">
-                            <div class="checkbox">
-                                @Html.CheckBoxFor(m => m.RememberMe)
-                                @Html.LabelFor(m => m.RememberMe)
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-md-offset-2 col-md-10">
+               <img class="form_logo " src="~/Content/images/seekshelter-logo_2.png" />
+                   <hr />
+                   @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                   <div class="form-group">
 
+                       <div class="col-md-10">
+                           @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @placeholder = "EMAIL ADDRESS" })
+                           @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                       </div>
+                   </div>
+                   <div class="form-group">
 
-                            <input type="submit" value="Log in" class="col-md-2 btn btn-default" />
+                       <div class="col-md-10">
+                           @Html.PasswordFor(m => m.Password, new { @class = "form-control", @placeholder = "PASSWORD" })
+                           @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                       </div>
+                   </div>
+                   <div class="form-group">
+                       <div class="row mar-left-40 grey">
+                           <div class="checkbox">
+                               @Html.CheckBoxFor(m => m.RememberMe)
+                               @Html.LabelFor(m => m.RememberMe)
+                           </div>
+                       </div>
+                   </div>
+                   <div class="form-group" style="width:60%">
+                       <div class="row mar-left-5">
+                           <div class="col-xs-5">
+                               <input type="submit" value="LOG IN" class="btn btn-default" />
+                           </div>
+                           <div class="col-xs-2 grey" style="font-size:20px">
+                               or
+                           </div>
+                           <div class="col-xs-5">
+                               @Html.ActionLink("REGISTER", "Register", null, new { @class = "btn btn-default " })
+                           </div>
 
+                       </div>
 
+                   </div>
 
-                            <b class="col-md-2"> @Html.ActionLink("Register as a new user", "Register", null, new { @class = "btn btn-default " }) </b>
-
-                        </div>
-
-                    </div>
-
-                    @* Enable this once you have account confirmation enabled for password reset functionality
-                        <p>
-                            @Html.ActionLink("Forgot your password?", "ForgotPassword")
-                        </p>*@
-                }
-            </section>
-        </div>
-   <div class="col-md-4">
+                   @* Enable this once you have account confirmation enabled for password reset functionality
+                    <p>
+                        @Html.ActionLink("Forgot your password?", "ForgotPassword")
+                    </p>*@
+           }
+       </section>
 
    </div>
 
     </div>
-<div class="col-md-4">
+    <div class="col-sm-3">
 
-</div>
+    </div>
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }
 
 <style>
    #loginForm{
-       box-shadow:-2px 0px 3px;
+       
        background-color:white;
        padding:20px;
-       border-radius:10px;
+       border-radius:0px;
    }
     
 
    
-
+   .form-control
+   {
+       border-radius:0px;
+   }
 
     body{
             
